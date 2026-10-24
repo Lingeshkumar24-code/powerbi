@@ -22,8 +22,8 @@ rules still apply: no Microsoft code or assets, no Power Query M, and no
 ![Product detail](docs/screenshot-page2.png)
 
 **Live deployment:** <https://powerbicraft.vercel.app> — the guest workbench,
-PWA and AI proxy are live. Cloud accounts and Drive remain disabled until a
-Firebase project and Google OAuth client are configured.
+PWA, AI proxy and Firebase email/password accounts are live. Google Drive
+remains disabled until a Google OAuth client is configured.
 
 ## Run it
 
@@ -213,10 +213,9 @@ data/
   real-time streaming and XMLA.
 - Power BI Pro/PPU/Embedded licensing and Fabric capacity semantics. The embed
   flow is a signed-token + CSP implementation, not Microsoft's embedding API.
-- A Firebase project and Google OAuth client were not available in this
-  workspace, so those two integrations were verified with injected/mocked
-  transports rather than against the real providers. Vercel is deployed and was
-  smoke-tested live, including a real Groq call.
+- A Google OAuth client was not available in this workspace, so Drive was
+  verified with mocked token/exchange/upload transports rather than against
+  Google. Firebase Auth, Vercel and Groq were smoke-tested live.
 
 ## Test it
 
@@ -268,7 +267,7 @@ smoke API itself uses a temporary database and never touches
 
 | Integration | Code | Automated verification | Live verification |
 | --- | --- | --- | --- |
-| Firebase Auth | client SDK + JWKS verification | token claims, issuer/audience, expiry, unverified/conflict paths | **Not run** — no Firebase project/config |
+| Firebase Auth | client SDK + JWKS verification | token claims, issuer/audience, expiry, unverified/conflict paths | **Live** — registration, verification/reset mail requests, UI sign-in and server token verification on Vercel |
 | Google Drive | OAuth code flow, PKCE/state, sealed tokens, save/open | mock token/exchange/upload flows, consent logs, retry | **Not run** — no Google OAuth client |
 | Groq | server proxy, quotas, disclosure, schema payload | mocked provider, quota/consent, payload minimization | **Live 200** — real `openai/gpt-oss-120b` call on Vercel |
 | Vercel | API/view functions, rewrites, cron, headers | server type check, Vercel config present | **Deployed** — <https://powerbicraft.vercel.app>; app, PWA assets, nested API and AI verified |

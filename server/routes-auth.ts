@@ -1,10 +1,10 @@
-import { all, get, type DB } from "./db.ts";
-import { HttpError } from "./http.ts";
-import type { Router } from "./http.ts";
-import { workspacesFor } from "./auth.ts";
-import { body, requireUser, type AppRequest } from "./types.ts";
-import { publicConfig, type ServerConfig } from "./config.ts";
-import { requireDashboard } from "./store.ts";
+import { all, get, type DB } from "./db.js";
+import { HttpError } from "./http.js";
+import type { Router } from "./http.js";
+import { workspacesFor } from "./auth.js";
+import { body, requireUser, type AppRequest } from "./types.js";
+import { publicConfig, type ServerConfig } from "./config.js";
+import { requireDashboard } from "./store.js";
 
 /**
  * Identity is delegated to Firebase. The service only exposes the public,

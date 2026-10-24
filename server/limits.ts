@@ -1,5 +1,5 @@
-import { newId } from "./auth.ts";
-import { get, run, tx, type DB } from "./db.ts";
+import { newId } from "./auth.js";
+import { get, run, tx, type DB } from "./db.js";
 
 export interface LimitSpec {
   bucket: string;

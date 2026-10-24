@@ -1,10 +1,10 @@
-import type { DB } from "./db.ts";
-import { run } from "./db.ts";
-import { HttpError, rateLimit, type Router } from "./http.ts";
-import { body, requireUser, type AppRequest } from "./types.ts";
-import { sha256 } from "./auth.ts";
-import type { ServerConfig } from "./config.ts";
-import { consumeLimits, limitKey, type LimitSpec } from "./limits.ts";
+import type { DB } from "./db.js";
+import { run } from "./db.js";
+import { HttpError, rateLimit, type Router } from "./http.js";
+import { body, requireUser, type AppRequest } from "./types.js";
+import { sha256 } from "./auth.js";
+import type { ServerConfig } from "./config.js";
+import { consumeLimits, limitKey, type LimitSpec } from "./limits.js";
 
 export const AI_DISCLOSURE_VERSION = "2026-10-24";
 

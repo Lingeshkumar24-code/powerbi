@@ -5,19 +5,18 @@
   "outputDirectory": "dist",
   "installCommand": "npm ci",
   "functions": {
-    "api/[...path].ts": {
-      "runtime": "nodejs22.x",
+    "api/index.ts": {
       "maxDuration": 60
     },
     "api/view.ts": {
-      "runtime": "nodejs22.x",
       "maxDuration": 30,
       "includeFiles": "dist/viewer.html"
     }
   },
   "rewrites": [
     { "source": "/v/:path*", "destination": "/api/view?kind=share&path=:path*" },
-    { "source": "/e/:path*", "destination": "/api/view?kind=embed&path=:path*" }
+    { "source": "/e/:path*", "destination": "/api/view?kind=embed&path=:path*" },
+    { "source": "/api/(.*)", "destination": "/api/index" }
   ],
   "crons": [
     { "path": "/api/cron/tick", "schedule": "17 3 * * *" }

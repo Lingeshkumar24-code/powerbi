@@ -1,8 +1,8 @@
-import { all, get, run, type DB } from "./db.ts";
-import { HttpError, type Router } from "./http.ts";
-import { newId, newToken, sha256 } from "./auth.ts";
-import { body, integer, optionalText, requireUser, stageName, type AppRequest } from "./types.ts";
-import type { ServerConfig } from "./config.ts";
+import { all, get, run, type DB } from "./db.js";
+import { HttpError, type Router } from "./http.js";
+import { newId, newToken, sha256 } from "./auth.js";
+import { body, integer, optionalText, requireUser, stageName, type AppRequest } from "./types.js";
+import type { ServerConfig } from "./config.js";
 import {
   createDashboard,
   dashboardDetail,
@@ -14,9 +14,9 @@ import {
   versionById,
   versions,
   type VersionRow,
-} from "./store.ts";
-import { diffDocuments } from "./diff.ts";
-import { seal, unseal } from "./crypto.ts";
+} from "./store.js";
+import { diffDocuments } from "./diff.js";
+import { seal, unseal } from "./crypto.js";
 
 const STAGES = ["dev", "test", "prod"] as const;
 

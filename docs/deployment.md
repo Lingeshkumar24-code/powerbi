@@ -5,8 +5,9 @@ PowerBICraft has two deployment shapes:
 1. **Single origin (recommended):** `npm run build && npm run serve` on a VM,
    container or persistent host. The API serves `dist/` and owns `/v` and `/e`.
    SQLite, the scheduler, the outbox and snapshots are durable.
-2. **Vercel:** static Vite frontend plus Node 22 serverless functions. Useful
+2. **Vercel:** static Vite frontend plus Node serverless functions. Useful
    for demos and low-traffic teams, with the storage caveats below.
+   The current production deployment is <https://powerbicraft.vercel.app>.
 
 ## Local production check
 
@@ -24,13 +25,19 @@ Share links, Google OAuth redirects and email snapshots use it.
 
 ### What is committed
 
-- `api/[...path].ts` forwards every `/api/*` request to the same `createApp()`
-  router used locally.
+- `api/index.ts` forwards every `/api/*` request to the same `createApp()`
+  router used locally. Vercel only matches one dynamic segment for non-Next.js
+  `api/[...path].ts` files, so `vercel.json` rewrites nested API paths to
+  `/api/index`; Vercel preserves the original `req.url` for the router.
 - `api/view.ts` serves `/v/*` and `/e/*` and keeps per-share CSP and validation.
   It uses `includeFiles: "dist/viewer.html"`.
 - `vercel.json` builds with `npm run build`, publishes `dist/`, rewrites the
-  viewer paths, configures the daily cron and sets security/cache headers.
-- `node:sqlite` requires the Node 22 runtime configured in `vercel.json`.
+  viewer and `/api/*` paths, configures the daily cron and sets security/cache
+  headers.
+- `.vercelignore` keeps local `.env` files, SQLite data, `dist/`, `.vercel/`
+  and other local artifacts out of the uploaded source.
+- Vercel selects its supported Node runtime automatically (currently Node 24);
+  `node:sqlite` works on Node 22.5+.
 
 ### Steps
 

@@ -1,5 +1,5 @@
 import { createRemoteJWKSet, jwtVerify, type JWTVerifyGetKey } from "jose";
-import type { TokenVerifier, VerifiedIdentity } from "./auth.ts";
+import type { TokenVerifier, VerifiedIdentity } from "./auth.js";
 
 /**
  * Firebase ID token verification against Google's rotating public keys.

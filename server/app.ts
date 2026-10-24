@@ -1,8 +1,8 @@
 import { createServer, type IncomingMessage, type ServerResponse } from "node:http";
 import { existsSync, statSync } from "node:fs";
 import { extname, join, normalize, sep } from "node:path";
-import { openDb, type DB } from "./db.ts";
-import { configFromEnv, type ServerConfig } from "./config.ts";
+import { openDb, type DB } from "./db.js";
+import { configFromEnv, type ServerConfig } from "./config.js";
 import {
   HttpError,
   Router,
@@ -12,20 +12,20 @@ import {
   serveFile,
   clientIp,
   assertSameOrigin,
-} from "./http.ts";
-import { bearerToken, ensureUser, type TokenVerifier, type User, type VerifiedIdentity } from "./auth.ts";
-import { createFirebaseVerifier } from "./firebase.ts";
-import { embedByToken } from "./store.ts";
-import { registerAuthRoutes } from "./routes-auth.ts";
-import { registerAiRoutes } from "./routes-ai.ts";
-import { registerGoogleRoutes } from "./routes-google.ts";
-import { registerWorkspaceRoutes } from "./routes-workspaces.ts";
-import { registerDashboardRoutes } from "./routes-dashboards.ts";
-import { registerPublicRoutes } from "./routes-public.ts";
-import { registerOpsRoutes } from "./routes-ops.ts";
-import { loadSecret } from "./crypto.ts";
-import { startScheduler } from "./ops.ts";
-import type { AppRequest } from "./types.ts";
+} from "./http.js";
+import { bearerToken, ensureUser, type TokenVerifier, type User, type VerifiedIdentity } from "./auth.js";
+import { createFirebaseVerifier } from "./firebase.js";
+import { embedByToken } from "./store.js";
+import { registerAuthRoutes } from "./routes-auth.js";
+import { registerAiRoutes } from "./routes-ai.js";
+import { registerGoogleRoutes } from "./routes-google.js";
+import { registerWorkspaceRoutes } from "./routes-workspaces.js";
+import { registerDashboardRoutes } from "./routes-dashboards.js";
+import { registerPublicRoutes } from "./routes-public.js";
+import { registerOpsRoutes } from "./routes-ops.js";
+import { loadSecret } from "./crypto.js";
+import { startScheduler } from "./ops.js";
+import type { AppRequest } from "./types.js";
 
 export interface App {
   server: ReturnType<typeof createServer>;

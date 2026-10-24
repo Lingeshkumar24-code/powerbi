@@ -1,4 +1,4 @@
-import { createApp } from "./app.ts";
+import { createApp } from "./app.js";
 
 // Node 20.12+/24 can read .env without a dependency. Ignore a missing file.
 try {

@@ -1,7 +1,7 @@
 import { createHash } from "node:crypto";
-import { all, get, run, tx, type DB } from "./db.ts";
-import { HttpError } from "./http.ts";
-import { newId } from "./auth.ts";
+import { all, get, run, tx, type DB } from "./db.js";
+import { HttpError } from "./http.js";
+import { newId } from "./auth.js";
 
 export type Role = "owner" | "editor" | "viewer";
 export type Stage = "dev" | "test" | "prod";

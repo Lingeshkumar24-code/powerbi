@@ -1,10 +1,10 @@
 import { createHash } from "node:crypto";
-import { all, get, run, type DB } from "./db.ts";
-import { HttpError, type Router } from "./http.ts";
-import { newToken, sha256 } from "./auth.ts";
-import { seal, unseal } from "./crypto.ts";
-import type { ServerConfig } from "./config.ts";
-import { body, requireUser, text, type AppRequest } from "./types.ts";
+import { all, get, run, type DB } from "./db.js";
+import { HttpError, type Router } from "./http.js";
+import { newToken, sha256 } from "./auth.js";
+import { seal, unseal } from "./crypto.js";
+import type { ServerConfig } from "./config.js";
+import { body, requireUser, text, type AppRequest } from "./types.js";
 
 const AUTH_URL = "https://accounts.google.com/o/oauth2/v2/auth";
 const TOKEN_URL = "https://oauth2.googleapis.com/token";

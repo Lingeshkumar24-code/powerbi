@@ -1,9 +1,9 @@
-import type { DB } from "./db.ts";
-import { run } from "./db.ts";
-import { HttpError, type Router } from "./http.ts";
-import { embedByToken, previewByToken, publishedContent, shareByToken, type DashboardRow } from "./store.ts";
-import { get } from "./db.ts";
-import type { AppRequest } from "./types.ts";
+import type { DB } from "./db.js";
+import { run } from "./db.js";
+import { HttpError, type Router } from "./http.js";
+import { embedByToken, previewByToken, publishedContent, shareByToken, type DashboardRow } from "./store.js";
+import { get } from "./db.js";
+import type { AppRequest } from "./types.js";
 
 function payloadFor(db: DB, dashboard: DashboardRow, kind: "share" | "preview" | "embed") {
   const published = publishedContent(db, dashboard);

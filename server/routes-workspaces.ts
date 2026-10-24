@@ -1,8 +1,8 @@
-import { all, get, run, tx, type DB } from "./db.ts";
-import { HttpError, type Router } from "./http.ts";
-import { newId, workspacesFor } from "./auth.ts";
-import { body, requireUser, text, type AppRequest } from "./types.ts";
-import { listDashboards, requireWorkspace, workspaceRole, type Role } from "./store.ts";
+import { all, get, run, tx, type DB } from "./db.js";
+import { HttpError, type Router } from "./http.js";
+import { newId, workspacesFor } from "./auth.js";
+import { body, requireUser, text, type AppRequest } from "./types.js";
+import { listDashboards, requireWorkspace, workspaceRole, type Role } from "./store.js";
 
 const ROLES: Role[] = ["owner", "editor", "viewer"];
 

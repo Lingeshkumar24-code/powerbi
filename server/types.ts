@@ -1,6 +1,6 @@
-import type { RequestCtx } from "./http.ts";
-import { HttpError } from "./http.ts";
-import type { User, VerifiedIdentity } from "./auth.ts";
+import type { RequestCtx } from "./http.js";
+import { HttpError } from "./http.js";
+import type { User, VerifiedIdentity } from "./auth.js";
 
 export interface AppRequest extends RequestCtx {
   user: User | null;

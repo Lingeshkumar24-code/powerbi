@@ -1,10 +1,10 @@
-import { all, get, run, type DB } from "./db.ts";
-import { HttpError, type Router } from "./http.ts";
-import { newId } from "./auth.ts";
-import { body, integer, requireUser, text, type AppRequest } from "./types.ts";
-import { requireDashboard } from "./store.ts";
-import { getJob, refreshSource, runDue, sendSubscription, type SourceRow } from "./ops.ts";
-import type { ServerConfig } from "./config.ts";
+import { all, get, run, type DB } from "./db.js";
+import { HttpError, type Router } from "./http.js";
+import { newId } from "./auth.js";
+import { body, integer, requireUser, text, type AppRequest } from "./types.js";
+import { requireDashboard } from "./store.js";
+import { getJob, refreshSource, runDue, sendSubscription, type SourceRow } from "./ops.js";
+import type { ServerConfig } from "./config.js";
 
 const KINDS: SourceRow["kind"][] = ["csv", "tsv", "json", "xlsx"];
 

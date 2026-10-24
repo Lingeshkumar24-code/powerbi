@@ -1,6 +1,6 @@
 import { createHash, randomBytes } from "node:crypto";
-import { get, run, type DB } from "./db.ts";
-import { HttpError } from "./http.ts";
+import { get, run, type DB } from "./db.js";
+import { HttpError } from "./http.js";
 
 export interface User {
   id: string;

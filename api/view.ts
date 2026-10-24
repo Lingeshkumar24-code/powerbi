@@ -1,5 +1,5 @@
 import type { IncomingMessage, ServerResponse } from "node:http";
-import { createApp, type App } from "../server/app";
+import { createApp, type App } from "../server/app.js";
 
 /**
  * Serves /v/:token and /e/:token through the real server handler so share
@@ -25,6 +25,5 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
 }
 
 export const config = {
-  runtime: "nodejs22.x",
   maxDuration: 30,
 };

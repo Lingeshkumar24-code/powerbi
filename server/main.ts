@@ -1,5 +1,5 @@
-import { createApp } from "./app.ts";
-import { findBrowser } from "./config.ts";
+import { createApp } from "./app.js";
+import { findBrowser } from "./config.js";
 
 try {
   process.loadEnvFile?.();

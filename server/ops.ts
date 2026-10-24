@@ -4,10 +4,10 @@ import { tmpdir } from "node:os";
 import { isAbsolute, join, resolve, sep, basename } from "node:path";
 import { lookup } from "node:dns/promises";
 import { isIP } from "node:net";
-import { all, get, run, tx, type DB } from "./db.ts";
-import { newId, newToken, sha256 } from "./auth.ts";
-import { findBrowser, type ServerConfig } from "./config.ts";
-import { tableFromCsv, tableFromJson, tablesFromXlsx } from "../src/importers";
+import { all, get, run, tx, type DB } from "./db.js";
+import { newId, newToken, sha256 } from "./auth.js";
+import { findBrowser, type ServerConfig } from "./config.js";
+import { tableFromCsv, tableFromJson, tablesFromXlsx } from "../src/importers.js";
 import type { Model, Table } from "../src/types";
 import {
   insertVersion,
@@ -16,8 +16,8 @@ import {
   stageMap,
   versionById,
   type DashboardRow,
-} from "./store.ts";
-import { HttpError } from "./http.ts";
+} from "./store.js";
+import { HttpError } from "./http.js";
 
 export interface JobRow {
   id: string;

@@ -402,6 +402,18 @@ link renders the same numbers as the editor.
   VM or external database for durable multi-instance production.
 - Not a Fabric/PPU/Pro implementation: no capacity, licensing or tenant model.
 
+## AI insights — verified live
+
+AI analysis runs server-side through a Groq proxy (`/api/ai/analyze`). The client builds a minimized schema/aggregate summary from the loaded report: table and column names, row counts, numeric aggregates (count, sum, average, min, max), measure names/DAX expressions, the question, and optional sample rows (off by default).
+
+Before anything is sent, a disclosure panel shows exactly what will be transmitted to Groq (`openai/gpt-oss-120b`), the approximate payload size, and a per-table breakdown. Nothing is sent until the consent box is ticked and **Analyze** is pressed. Sample rows are opt-in. The server adds the Groq key (never exposed to the browser), enforces persisted guest (per-IP) and signed-in quotas, and logs consent + usage.
+
+The live deployment (`https://powerbicraft.vercel.app`) was tested against a real sales dataset (500 orders, 19 columns) and returned analysis with Groq, including findings such as Electronics driving most revenue, East region and Online channel being strongest, and South/Retail/Stationery/Consumer being weakest, plus caveats about per-dimension totals hiding cross-dimensional interactions.
+
+## Email verification — verified live
+
+Cloud accounts use Firebase Authentication email/password. On registration/sign-in, Firebase sends a verification email and cloud features stay locked until Firebase reports the address as verified. The app shows a verification dialog ("Verify your email") with an "I've verified — continue" action, a "Resend email" option, and "Sign out". Verification is a Firebase feature — the app never sees the user's password. ID tokens are verified server-side against Google JWKS with the Firebase project as issuer/audience, and unverified emails are refused before a local user row is created.
+
 ## Licence
 
 MIT License — see [`LICENSE`](LICENSE).

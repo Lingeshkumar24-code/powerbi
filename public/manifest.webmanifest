@@ -1,0 +1,39 @@
+{
+  "name": "PowerBICraft",
+  "short_name": "PowerBICraft",
+  "description": "A guest-first, local business-intelligence workbench for building and sharing reports.",
+  "id": "/",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
+  "orientation": "any",
+  "background_color": "#f3f5f9",
+  "theme_color": "#1565c0",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["business", "productivity", "utilities"],
+  "icons": [
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/maskable-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "/icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    {
+      "name": "Browser library",
+      "short_name": "Library",
+      "description": "Open projects and datasets saved on this device",
+      "url": "/?library=1",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "AI insights",
+      "short_name": "AI",
+      "description": "Review the disclosure and analyze the current report with Groq",
+      "url": "/?ai=1",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    }
+  ],
+  "prefer_related_applications": false
+}
